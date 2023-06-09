@@ -1,0 +1,30 @@
+.ajustify{
+    text-align: justify;   
+  }
+  
+.acenter{
+    text-align: center;   
+  }
+
+
+.home{
+    text-align: center;   
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+.pad{
+  padding-bottom: 12px!important;
+}
+
+
+a{ 
+  color: #4f4f4f;
+  text-decoration: none;  
+}
+
+a:hover {
+  color: #4f4f4f;
+  background-color: transparent;
+  text-decoration: none;
+}

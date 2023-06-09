@@ -1,0 +1,17 @@
+---
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo $FUNCTION_NAME
+      - echo $AWS_REGION
+  build:
+    commands:
+      - echo -e Build started on `date`
+      - cd code
+      - pip install -r requirements.txt && pip install -r test/requirements.txt
+      - python3 -m pytest -s test/  -v
+      - if [ $? ]; then zip -qr lambda.zip ./app.py && aws lambda update-function-code --function-name $FUNCTION_NAME --region $AWS_REGION --zip-file fileb://lambda.zip; else exit 1; fi       
+artifacts:
+  files:
+    - code/lambda.zip
